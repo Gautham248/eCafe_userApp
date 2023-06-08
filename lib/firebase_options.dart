@@ -50,20 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDGVl9qn2LvGfK5-kKCSNTUKqMjZzqSm58',
-    appId: '1:751239049267:android:cf76cf2f7602ab757fb346',
-    messagingSenderId: '751239049267',
-    projectId: 'canteenmanagementseller',
-    storageBucket: 'canteenmanagementseller.appspot.com',
+    apiKey: 'AIzaSyAyPcunHDWDTOtasU94C8X-D7K25i0_wus',
+    appId: '1:864679098331:android:25fd1ec5514dce929259fe',
+    messagingSenderId: '864679098331',
+    projectId: 'ecafedemo',
+    storageBucket: 'ecafedemo.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCeNxbc8yl0riwSVECdJzoICbIN8onwLzA',
-    appId: '1:751239049267:ios:decd089625a63f997fb346',
-    messagingSenderId: '751239049267',
-    projectId: 'canteenmanagementseller',
-    storageBucket: 'canteenmanagementseller.appspot.com',
-    iosClientId: '751239049267-oupt58bt5hce0uhoa8rh94hlmp5bq3so.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAURQXl46O2H3ChBQPW6_jXr3pvWpz4c1I',
+    appId: '1:864679098331:ios:629d21e5b5379dd69259fe',
+    messagingSenderId: '864679098331',
+    projectId: 'ecafedemo',
+    storageBucket: 'ecafedemo.appspot.com',
+    iosClientId: '864679098331-qaj46ok5ge5jeqcjbhsrijvf33j50lov.apps.googleusercontent.com',
     iosBundleId: 'com.dafg.canteenManagementUser',
   );
 }
