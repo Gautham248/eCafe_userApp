@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:canteen_management_user/global/global.dart';
 import 'package:flutter/material.dart';
+import 'package:canteen_management_user/authentication/auth_screen.dart';
+import 'package:canteen_management_user/mainScreens/home_screen.dart';
 
 class MySplashScreen extends StatefulWidget {
   const MySplashScreen({Key? key}) : super(key: key);
@@ -11,12 +13,14 @@ class MySplashScreen extends StatefulWidget {
 
 class _MySplashScreenState extends State<MySplashScreen> {
   startTimer() {
-    Timer(const Duration(seconds: 5), () async {
+    Timer(const Duration(seconds: 3), () async {
       if (firebaseAuth.currentUser != null) {
         //check if seller is already logged in
-        //Navigator.push(context,MaterialPageRoute(builder: (c)=>const HomeScreen()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (c) => const HomeScreen()));
       } else {
-        // Navigator.push(context,MaterialPageRoute(builder: (c)=>const AuthScreen()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (c) => const AuthScreen()));
       }
     });
   }
