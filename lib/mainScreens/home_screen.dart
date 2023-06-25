@@ -2,7 +2,7 @@ import 'package:canteen_management_user/authentication/auth_screen.dart';
 import 'package:canteen_management_user/global/global.dart';
 import 'package:canteen_management_user/models/sellers.dart';
 import 'package:canteen_management_user/widgets/progress_bar.dart';
-import 'package:canteen_management_user/widgets/info_design.dart';
+import 'package:canteen_management_user/widgets/sellers_design.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -133,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               snapshot.data!.docs[index].data()!
                                   as Map<String, dynamic>);
                           //design for display sellers-cafes-restuarents
-                          return InfoDesignWidget(
+                          return SellersDesignWidget(
                             model: sModel,
                             context: context,
                           );
