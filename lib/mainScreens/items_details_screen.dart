@@ -1,3 +1,4 @@
+import 'package:canteen_management_user/assistantMethods/assistant_methods.dart';
 import 'package:canteen_management_user/models/items.dart';
 import 'package:canteen_management_user/widgets/app_bar.dart';
 import 'package:flutter/material.dart';
@@ -74,7 +75,10 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen>
             child: InkWell(
               onTap: ()
               {
-                //add to cart
+                //1.check if  item exist in cart
+                //2.add to cart
+                int itemCounter= int.parse(counterTextEditingController.text);
+                addItemToCart(widget.model!.itemID,context,itemCounter);
               },
               child: Container(
                 decoration: const BoxDecoration(
