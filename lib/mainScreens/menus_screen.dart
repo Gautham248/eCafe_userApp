@@ -5,8 +5,8 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:canteen_management_user/global/global.dart';
 import 'package:canteen_management_user/models/menus.dart';
 import 'package:canteen_management_user/models/sellers.dart';
-// import 'package:canteen_management_user/widgets/menus_design.dart';
-// import 'package:canteen_management_user/widgets/sellers_design.dart';
+ import 'package:canteen_management_user/widgets/menus_design.dart';
+import 'package:canteen_management_user/widgets/sellers_design.dart';
 import 'package:canteen_management_user/widgets/my_drawer.dart';
 import 'package:canteen_management_user/widgets/progress_bar.dart';
 import 'package:canteen_management_user/widgets/text_widget_header.dart';
@@ -27,7 +27,7 @@ class _MenusScreenState extends State<MenusScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const MyDrawer(),
+      drawer: MyDrawer(),
       appBar: AppBar(
         flexibleSpace: Container(
           decoration: const BoxDecoration(
@@ -52,7 +52,7 @@ class _MenusScreenState extends State<MenusScreen> {
       ),
       body: CustomScrollView(
         slivers: [
-          SliverPersistentHeader(pinned: true, delegate: TextWidgetHeader(title: widget.model!.sellerName.toString())),
+          SliverPersistentHeader(pinned: true, delegate: TextWidgetHeader(title: widget.model!.sellerName.toString() + " Menus")),
           StreamBuilder<QuerySnapshot>(
             stream: FirebaseFirestore.instance
                 .collection("sellers")
@@ -68,7 +68,7 @@ class _MenusScreenState extends State<MenusScreen> {
               )
                   : SliverStaggeredGrid.countBuilder(
                 crossAxisCount: 1,
-                staggeredTileBuilder: (c) => const StaggeredTile.fit(1),
+                staggeredTileBuilder: (c) => StaggeredTile.fit(1),
                 itemBuilder: (context, index)
                 {
                   Menus model = Menus.fromJson(

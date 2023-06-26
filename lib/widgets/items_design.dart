@@ -1,3 +1,4 @@
+import 'package:canteen_management_user/mainScreens/items_details_screen.dart';
 import 'package:canteen_management_user/models/items.dart';
 import 'package:flutter/material.dart';
 import 'package:canteen_management_user/models/sellers.dart';
@@ -17,6 +18,9 @@ class _ItemsDesignWidgetState extends State<ItemsDesignWidget> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (c)=>ItemDetailsScreen(model:widget.model)));
+      },
       splashColor: Colors.amber,
       child: Padding(
         padding: const EdgeInsets.all(5.0),
