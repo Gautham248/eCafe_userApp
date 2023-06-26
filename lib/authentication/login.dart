@@ -1,3 +1,4 @@
+import 'package:canteen_management_user/authentication/auth_screen.dart';
 import 'package:canteen_management_user/global/global.dart';
 import 'package:canteen_management_user/mainScreens/home_screen.dart';
 import 'package:canteen_management_user/widgets/error_dialog.dart';
@@ -73,17 +74,41 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  Future readDataAndSetDataLocally(User currentUser) async {
-    await FirebaseFirestore.instance
-        .collection(("users"))
+  Future readDataAndSetDataLocally(User currentUser) async
+  {
+    await FirebaseFirestore.instance.collection("users")
         .doc(currentUser.uid)
         .get()
         .then((snapshot) async {
-      await sharedPreferences!.setString("uid", currentUser.uid);
-      await sharedPreferences!.setString("email", snapshot.data()!["email"]);
-      await sharedPreferences!.setString("name", snapshot.data()!["name"]);
-      await sharedPreferences!
-          .setString("photoUrl", snapshot.data()!["photoUrl"]);
+      if(snapshot.exists)
+      {
+        await sharedPreferences!.setString("uid", currentUser.uid);
+        await sharedPreferences!.setString("email", snapshot.data()!["email"]);
+        await sharedPreferences!.setString("name", snapshot.data()!["name"]);
+        await sharedPreferences!.setString("photoUrl", snapshot.data()!["photoUrl"]);
+
+        List<String> userCartList = snapshot.data()!["userCart"].cast<String>();
+        await sharedPreferences!.setStringList("userCart", userCartList);
+
+        Navigator.pop(context);
+        Navigator.push(context, MaterialPageRoute(builder: (c)=> const HomeScreen()));
+      }
+      else
+      {
+        firebaseAuth.signOut();
+        Navigator.pop(context);
+        Navigator.push(context, MaterialPageRoute(builder: (c)=> const AuthScreen()));
+
+        showDialog(
+            context: context,
+            builder: (c)
+            {
+              return ErrorDialog(
+                message: "No record found.",
+              );
+            }
+        );
+      }
     });
   }
 
