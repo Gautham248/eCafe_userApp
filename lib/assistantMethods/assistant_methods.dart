@@ -1,5 +1,7 @@
 import 'package:canteen_management_user/assistantMethods/cart_Item_counter.dart';
 import 'package:canteen_management_user/global/global.dart';
+import 'package:canteen_management_user/mainScreens/home_screen.dart';
+import 'package:canteen_management_user/splashScreen/splash_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -54,8 +56,6 @@ addItemToCart(String? foodItemId, BuildContext context, int itemCounter)
       });
 
 }
-
-
 //Function to return item Quantities alone
 separateItemQuantities()
 {
@@ -90,3 +90,20 @@ separateItemQuantities()
   return separateItemQuantityList;
 }
 
+clearCartNow(context)
+{
+  sharedPreferences!.setStringList("userCart", ['garbageValue']);
+  List<String>? emptyList = sharedPreferences!.getStringList("userCart");
+
+  FirebaseFirestore.instance
+      .collection("users")
+      .doc(firebaseAuth.currentUser!.uid)
+      .update({"userCart": emptyList}).then((value)
+  {
+    sharedPreferences!.setStringList("userCart", emptyList!);
+    Provider.of<CartItemCounter>(context, listen: false).displayCartListItemsNumber();
+    
+    Fluttertoast.showToast(msg: "cart has been cleared");
+    Navigator.push(context, MaterialPageRoute(builder: (c)=>HomeScreen()));
+  });
+}

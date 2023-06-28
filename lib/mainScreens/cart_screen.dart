@@ -36,6 +36,7 @@ class _CartScreenState extends State<CartScreen> {
             alignment: Alignment.bottomLeft,
             child: FloatingActionButton.extended(onPressed: (){
                 // clear cart function
+              clearCartNow(context);
             }, label:const Text("Clear Cart"),backgroundColor:Colors.cyan,
             icon: Icon(Icons.clear_all),),
           ),
