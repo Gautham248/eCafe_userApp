@@ -7,7 +7,33 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
-//Function to return item IDs alone
+separateOrderItemIDs(orderIDs)
+{
+  List<String> separateItemIDsList=[], defaultItemList=[];
+  int i=0;
+
+  defaultItemList = List<String>.from(orderIDs);
+
+  for(i; i<defaultItemList.length; i++)
+  {
+    //56557657:7
+    String item = defaultItemList[i].toString();
+    var pos = item.lastIndexOf(":");
+
+    //56557657
+    String getItemId = (pos != -1) ? item.substring(0, pos) : item;
+
+    print("\nThis is itemID now = " + getItemId);
+
+    separateItemIDsList.add(getItemId);
+  }
+
+  print("\nThis is Items List now = ");
+  print(separateItemIDsList);
+
+  return separateItemIDsList;
+}
+
 separateItemIDs()
 {
   List<String> separateItemIDsList=[], defaultItemList=[];
@@ -44,19 +70,50 @@ addItemToCart(String? foodItemId, BuildContext context, int itemCounter)
       .doc(firebaseAuth.currentUser!.uid).update({
     "userCart": tempList,
   }).then((value)
-      {
+  {
+    Fluttertoast.showToast(msg: "Item Added Successfully.");
 
-        Fluttertoast.showToast(msg: "Item added successfully");
-        sharedPreferences!.setStringList("userCart", tempList);
-        //update the badge counter
-        Provider.of<CartItemCounter>(context,listen: false).displayCartListItemsNumber();
+    sharedPreferences!.setStringList("userCart", tempList);
 
-
-
-      });
-
+    //update the badge
+    Provider.of<CartItemCounter>(context, listen: false).displayCartListItemsNumber();
+  });
 }
-//Function to return item Quantities alone
+
+
+separateOrderItemQuantities(orderIDs)
+{
+  List<String> separateItemQuantityList=[];
+  List<String> defaultItemList=[];
+  int i=1;
+
+  defaultItemList = List<String>.from(orderIDs);
+
+  for(i; i<defaultItemList.length; i++)
+  {
+    //56557657:7
+    String item = defaultItemList[i].toString();
+
+
+    //0=:
+    //1=7
+    //:7
+    List<String> listItemCharacters = item.split(":").toList();
+
+    //7
+    var quanNumber = int.parse(listItemCharacters[1].toString());
+
+    print("\nThis is Quantity Number = " + quanNumber.toString());
+
+    separateItemQuantityList.add(quanNumber.toString());
+  }
+
+  print("\nThis is Quantity List now = ");
+  print(separateItemQuantityList);
+
+  return separateItemQuantityList;
+}
+
 separateItemQuantities()
 {
   List<int> separateItemQuantityList=[];
@@ -102,8 +159,5 @@ clearCartNow(context)
   {
     sharedPreferences!.setStringList("userCart", emptyList!);
     Provider.of<CartItemCounter>(context, listen: false).displayCartListItemsNumber();
-    
-    Fluttertoast.showToast(msg: "cart has been cleared");
-
   });
 }

@@ -1,3 +1,5 @@
+import 'package:canteen_management_user/mainScreens/home_screen.dart';
+import 'package:canteen_management_user/mainScreens/my_orders_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:canteen_management_user/authentication/auth_screen.dart';
 import 'package:canteen_management_user/global/global.dart';
@@ -67,7 +69,9 @@ class MyDrawer extends StatelessWidget {
                     "Home",
                     style: TextStyle(color: Colors.black),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (c)=>HomeScreen()));
+                  },
                 ),
                 const Divider(
                   height: 10,
@@ -83,7 +87,9 @@ class MyDrawer extends StatelessWidget {
                     "My Orders",
                     style: TextStyle(color: Colors.black),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (c)=>MyOrdersScreen()));
+                  },
                 ),
                 const Divider(
                   height: 10,
