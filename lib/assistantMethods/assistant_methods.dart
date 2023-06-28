@@ -1,7 +1,9 @@
+import 'package:canteen_management_user/assistantMethods/cart_Item_counter.dart';
 import 'package:canteen_management_user/global/global.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
 
 
 separateItemIDs()
@@ -44,6 +46,11 @@ addItemToCart(String? foodItemId, BuildContext context, int itemCounter)
 
         Fluttertoast.showToast(msg: "Item added successfully");
         sharedPreferences!.setStringList("userCart", tempList);
+        //update the badge counter
+        Provider.of<CartItemCounter>(context,listen: false).displayCartListItemsNumber();
+
+
+
       });
 
 }

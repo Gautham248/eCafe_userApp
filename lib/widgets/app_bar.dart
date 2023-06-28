@@ -1,5 +1,7 @@
+import 'package:canteen_management_user/assistantMethods/cart_Item_counter.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import 'package:canteen_management_user/main.dart';
 
 class MyAppBar extends StatefulWidget implements PreferredSizeWidget
 {
@@ -55,10 +57,10 @@ class _MyAppBarState extends State<MyAppBar>
                 //send user to cart screen
               },
             ),
-            const Positioned(
+            Positioned(
               child: Stack(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.brightness_1,
                     size: 20.0,
                     color: Colors.green,
@@ -67,7 +69,15 @@ class _MyAppBarState extends State<MyAppBar>
                     top: 3,
                     right: 4,
                     child: Center(
-                      child: Text("0", style: TextStyle(color: Colors.white, fontSize: 12),),
+                      child: Consumer<CartItemCounter>(
+                        builder: (context, counter, c)
+                        {
+                          return Text(
+                            counter.count.toString(),
+                            style: const TextStyle(color: Colors.white, fontSize: 12),
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ],

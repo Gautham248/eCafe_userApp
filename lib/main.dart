@@ -4,6 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:canteen_management_user/global/global.dart';
 import 'splashScreen/splash_screen.dart';
 import 'firebase_options.dart';
+import 'package:provider/provider.dart';
+import 'package:canteen_management_user/assistantMethods/cart_Item_counter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,17 +18,22 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'users_app',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (c)=> CartItemCounter()),
+      ],
+      child: MaterialApp(
+        title: 'Riders App',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const MySplashScreen(),
       ),
-      home: const MySplashScreen(),
     );
   }
 }
