@@ -104,6 +104,6 @@ clearCartNow(context)
     Provider.of<CartItemCounter>(context, listen: false).displayCartListItemsNumber();
     
     Fluttertoast.showToast(msg: "cart has been cleared");
-    Navigator.push(context, MaterialPageRoute(builder: (c)=>HomeScreen()));
+
   });
 }

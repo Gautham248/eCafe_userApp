@@ -1,3 +1,4 @@
+import 'package:canteen_management_user/assistantMethods/total_amount.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (c)=> CartItemCounter()),
+        ChangeNotifierProvider(create: (c)=> TotalAmount()),
       ],
       child: MaterialApp(
         title: 'Riders App',

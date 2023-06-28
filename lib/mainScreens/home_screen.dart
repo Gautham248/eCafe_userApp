@@ -1,3 +1,4 @@
+import 'package:canteen_management_user/assistantMethods/assistant_methods.dart';
 import 'package:canteen_management_user/authentication/auth_screen.dart';
 import 'package:canteen_management_user/global/global.dart';
 import 'package:canteen_management_user/models/sellers.dart';
@@ -47,6 +48,12 @@ class _HomeScreenState extends State<HomeScreen> {
     "slider/26.jpg",
     "slider/27.jpg",
   ];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    clearCartNow(context);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

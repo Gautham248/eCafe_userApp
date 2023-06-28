@@ -1,3 +1,5 @@
+import 'package:canteen_management_user/assistantMethods/assistant_methods.dart';
+import 'package:canteen_management_user/mainScreens/home_screen.dart';
 import 'package:canteen_management_user/widgets/menus_design.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +12,7 @@ import 'package:canteen_management_user/widgets/sellers_design.dart';
 import 'package:canteen_management_user/widgets/my_drawer.dart';
 import 'package:canteen_management_user/widgets/progress_bar.dart';
 import 'package:canteen_management_user/widgets/text_widget_header.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 
 class MenusScreen extends StatefulWidget
@@ -27,7 +30,6 @@ class _MenusScreenState extends State<MenusScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: MyDrawer(),
       appBar: AppBar(
         flexibleSpace: Container(
           decoration: const BoxDecoration(
@@ -43,6 +45,13 @@ class _MenusScreenState extends State<MenusScreen> {
               )
           ),
         ),
+        leading: IconButton
+          (onPressed: ()
+        {
+          clearCartNow(context);
+          Navigator.push(context, MaterialPageRoute(builder: (c)=>HomeScreen()));
+          Fluttertoast.showToast(msg: "Cart has been cleared");
+          }, icon: const Icon(Icons.arrow_back)),
         title: const Text(
           "iFood",
           style: TextStyle(fontSize: 45, fontFamily: "Signatra"),
