@@ -2,6 +2,7 @@ import 'package:canteen_management_user/assistantMethods/assistant_methods.dart'
 import 'package:canteen_management_user/assistantMethods/cart_Item_counter.dart';
 import 'package:canteen_management_user/assistantMethods/total_amount.dart';
 import 'package:canteen_management_user/mainScreens/home_screen.dart';
+import 'package:canteen_management_user/mainScreens/placed_order_screen.dart';
 import 'package:canteen_management_user/models/items.dart';
 import 'package:canteen_management_user/widgets/app_bar.dart';
 import 'package:canteen_management_user/widgets/cart_item_design.dart';
@@ -123,6 +124,11 @@ class _CartScreenState extends State<CartScreen> {
             alignment: Alignment.bottomLeft,
             child: FloatingActionButton.extended(onPressed: (){
               //Checkout function
+              Navigator.push(context, MaterialPageRoute(builder: (c)=>PlacedOrderScreen(
+                totalAmount: totalAmount.toDouble(),
+                sellerUID: widget.sellerUID,
+              )));
+
 
             }, label:const Text("Checkout"),backgroundColor:Colors.cyan,
               icon: Icon(Icons.navigate_next),),
