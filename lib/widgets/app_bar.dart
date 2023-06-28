@@ -1,4 +1,5 @@
 import 'package:canteen_management_user/assistantMethods/cart_Item_counter.dart';
+import 'package:canteen_management_user/mainScreens/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:canteen_management_user/main.dart';
@@ -6,7 +7,8 @@ import 'package:canteen_management_user/main.dart';
 class MyAppBar extends StatefulWidget implements PreferredSizeWidget
 {
   final PreferredSizeWidget? bottom;
-  MyAppBar({this.bottom});
+  final String? sellerUID;
+  MyAppBar({this.bottom,this.sellerUID});
 
   @override
   _MyAppBarState createState() => _MyAppBarState();
@@ -55,6 +57,7 @@ class _MyAppBarState extends State<MyAppBar>
               onPressed: ()
               {
                 //send user to cart screen
+                Navigator.push(context, MaterialPageRoute(builder: (c)=>CartScreen(sellerUID: widget.sellerUID)));
               },
             ),
             Positioned(
