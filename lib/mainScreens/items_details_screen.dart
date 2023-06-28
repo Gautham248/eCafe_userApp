@@ -3,7 +3,7 @@ import 'package:canteen_management_user/models/items.dart';
 import 'package:canteen_management_user/widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 
 
 class ItemDetailsScreen extends StatefulWidget
@@ -64,7 +64,7 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen>
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              widget.model!.price.toString() + " €",
+              "₹"+ widget.model!.price.toString()  ,
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
             ),
           ),
@@ -78,6 +78,9 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen>
                 //1.check if  item exist in cart
                 //2.add to cart
                 int itemCounter= int.parse(counterTextEditingController.text);
+                List<String> separateItemIDsList= separateItemIDs();
+                separateItemIDsList.contains(widget.model!.itemID)?Fluttertoast.showToast(msg: "Item already in Cart")
+                :
                 addItemToCart(widget.model!.itemID,context,itemCounter);
               },
               child: Container(
