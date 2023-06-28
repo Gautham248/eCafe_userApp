@@ -117,8 +117,9 @@ class _CartScreenState extends State<CartScreen> {
               clearCartNow(context);
               Navigator.push(context, MaterialPageRoute(builder: (c)=> HomeScreen()));
               Fluttertoast.showToast(msg: "Cart has been cleared");
-            }, label:const Text("Clear Cart"),backgroundColor:Colors.cyan,
+            }, heroTag: "btn1",label:const Text("Clear Cart"),backgroundColor:Colors.cyan,
             icon: Icon(Icons.clear_all),),
+
           ),
           Align(
             alignment: Alignment.bottomLeft,
@@ -130,7 +131,7 @@ class _CartScreenState extends State<CartScreen> {
               )));
 
 
-            }, label:const Text("Checkout"),backgroundColor:Colors.cyan,
+            }, heroTag: "btn2",label:const Text("Checkout"),backgroundColor:Colors.cyan,
               icon: Icon(Icons.navigate_next),),
           )
         ],
