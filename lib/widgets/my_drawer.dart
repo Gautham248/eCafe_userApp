@@ -1,3 +1,4 @@
+import 'package:canteen_management_user/mainScreens/history_screen.dart';
 import 'package:canteen_management_user/mainScreens/home_screen.dart';
 import 'package:canteen_management_user/mainScreens/my_orders_screen.dart';
 import 'package:flutter/material.dart';
@@ -105,45 +106,47 @@ class MyDrawer extends StatelessWidget {
                     "History",
                     style: TextStyle(color: Colors.black),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (c)=>HistoryScreen()));
+                  },
                 ),
                 const Divider(
                   height: 10,
                   color: Colors.grey,
                   thickness: 2,
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.search,
-                    color: Colors.black,
-                  ),
-                  title: const Text(
-                    "Search",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  onTap: () {},
-                ),
-                const Divider(
-                  height: 10,
-                  color: Colors.grey,
-                  thickness: 2,
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.add_location,
-                    color: Colors.black,
-                  ),
-                  title: const Text(
-                    "Add New Address",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  onTap: () {},
-                ),
-                const Divider(
-                  height: 10,
-                  color: Colors.grey,
-                  thickness: 2,
-                ),
+                 ),
+                // // ListTile(
+                // //   leading: const Icon(
+                // //     Icons.search,
+                // //     color: Colors.black,
+                // //   ),
+                // //   title: const Text(
+                // //     "Search",
+                // //     style: TextStyle(color: Colors.black),
+                // //   ),
+                // //   onTap: () {},
+                // // ),
+                // const Divider(
+                //   height: 10,
+                //   color: Colors.grey,
+                //   thickness: 2,
+                // ),
+                // // ListTile(
+                // //   leading: const Icon(
+                // //     Icons.add_location,
+                // //     color: Colors.black,
+                // //   ),
+                // //   title: const Text(
+                // //     "Add New Address",
+                // //     style: TextStyle(color: Colors.black),
+                // //   ),
+                // //   onTap: () {},
+                // // ),
+                // const Divider(
+                //   height: 10,
+                //   color: Colors.grey,
+                //   thickness: 2,
+                // ),
                 ListTile(
                   leading: const Icon(
                     Icons.exit_to_app,

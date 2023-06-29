@@ -53,7 +53,7 @@ class _MenusScreenState extends State<MenusScreen> {
           Fluttertoast.showToast(msg: "Cart has been cleared");
           }, icon: const Icon(Icons.arrow_back)),
         title: const Text(
-          "iFood",
+          "e-Cafe",
           style: TextStyle(fontSize: 45, fontFamily: "Signatra"),
         ),
         centerTitle: true,
