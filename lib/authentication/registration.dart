@@ -219,9 +219,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               formValidation();
             }),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.purple,
+              backgroundColor: Colors.white,
             ),
-            child: const Text("SignUp", style: TextStyle(color: Colors.white)),
+            child: const Text("SignUp", style: TextStyle(color: Colors.orange)),
           )
         ],
       ),

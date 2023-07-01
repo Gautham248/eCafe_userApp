@@ -1,3 +1,4 @@
+import 'package:canteen_management_user/mainScreens/edit_profile.dart';
 import 'package:canteen_management_user/mainScreens/history_screen.dart';
 import 'package:canteen_management_user/mainScreens/home_screen.dart';
 import 'package:canteen_management_user/mainScreens/my_orders_screen.dart';
@@ -90,6 +91,23 @@ class MyDrawer extends StatelessWidget {
                   ),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (c)=>MyOrdersScreen()));
+                  },
+                ), const Divider(
+                  height: 10,
+                  color: Colors.grey,
+                  thickness: 2,
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.edit,
+                    color: Colors.black,
+                  ),
+                  title: const Text(
+                    "Edit Profile",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (c)=>EditProfilePage()));
                   },
                 ),
                 const Divider(

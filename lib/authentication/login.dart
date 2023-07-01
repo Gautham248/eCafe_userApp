@@ -1,4 +1,5 @@
 import 'package:canteen_management_user/authentication/auth_screen.dart';
+import 'package:canteen_management_user/authentication/forgot_password.dart';
 import 'package:canteen_management_user/global/global.dart';
 import 'package:canteen_management_user/mainScreens/home_screen.dart';
 import 'package:canteen_management_user/widgets/error_dialog.dart';
@@ -118,6 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
+
           Container(
             alignment: Alignment.bottomCenter,
             child: Padding(
@@ -145,16 +147,36 @@ class _LoginScreenState extends State<LoginScreen> {
                 isObscure: true,
                 enabled: true,
               ),
+                const SizedBox(
+                  height: 10,
+                ),
+               Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25),
+                  child: Row(
+                   mainAxisAlignment: MainAxisAlignment.end,
+                   children: [
+                      GestureDetector(
+                        onTap:(){
+                          Navigator.push(context, MaterialPageRoute(builder:(context){return ForgotPassword();}));
+                        },
+                        child: const Text("Forgot Password?",style:
+                          TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
+                        ),
+                      ),
+                   ],
+               ),
+                ),
             ],
           )),
+
           ElevatedButton(
             onPressed: (() {
               formValidation();
             }),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.purple,
+              backgroundColor: Colors.white,
             ),
-            child: const Text("Login", style: TextStyle(color: Colors.white)),
+            child: const Text("Login", style: TextStyle(color: Colors.orange)),
           ),
           const SizedBox(
             height: 30,

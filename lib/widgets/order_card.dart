@@ -17,8 +17,10 @@ class OrderCard extends StatelessWidget {
   });
 
 
+
   @override
   Widget build(BuildContext context) {
+
     return InkWell(
       onTap: ()
       {
@@ -51,8 +53,10 @@ class OrderCard extends StatelessWidget {
           },
         ),
       ),
+
     );
   }
+
 }
 
 Widget placedOrderDesignWidget(Items model, BuildContext context, seperateQuantitiesList)
@@ -129,6 +133,28 @@ Widget placedOrderDesignWidget(Items model, BuildContext context, seperateQuanti
                   ),
                 ],
               ),
+              // Row(
+              //
+              //   children: [
+              //     const Text(
+              //       "x ",
+              //       style: TextStyle(
+              //         color: Colors.black54,
+              //         fontSize: 14,
+              //       ),
+              //     ),
+              //     Expanded(
+              //       child: Text(
+              //         seperateQuantitiesList,
+              //         style: const TextStyle(
+              //           color: Colors.black54,
+              //           fontSize: 30,
+              //           fontFamily: "Acme",
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
 
             ],
           ),

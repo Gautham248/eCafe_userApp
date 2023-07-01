@@ -86,6 +86,13 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen>
                       style: const TextStyle(fontSize: 16, color: Colors.grey),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Order Status= " + orderStatus,
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                  ),
                   const Divider(thickness: 4,),
                   orderStatus == "ended"
                       ? Image.asset("images/delivered.jpg")

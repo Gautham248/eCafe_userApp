@@ -49,13 +49,13 @@ class _SellersDesignWidgetState extends State<SellersDesignWidget> {
                   fontFamily: "TrainOne",
                 ),
               ),
-              Text(
-                widget.model!.sellerEmail!,
-                style: const TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
-                ),
-              ),
+              // Text(
+              //   widget.model!.sellerEmail!,
+              //   style: const TextStyle(
+              //     color: Colors.grey,
+              //     fontSize: 12,
+              //   ),
+              // ),
               Divider(
                 height: 4,
                 thickness: 3,

@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (c)=> TotalAmount()),
       ],
       child: MaterialApp(
-        title: 'Riders App',
+        title: 'Users App',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
