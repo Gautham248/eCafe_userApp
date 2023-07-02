@@ -19,10 +19,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final items = [
-    "slider/0.jpg",
-    "slider/1.jpg",
-    "slider/2.jpg",
-    "slider/3.jpg",
+    // "slider/0.jpg",
+    // "slider/1.jpg",
+    // "slider/2.jpg",
+    // "slider/3.jpg",
     "slider/4.jpg",
     "slider/5.jpg",
     "slider/6.jpg",
@@ -62,8 +62,8 @@ class _HomeScreenState extends State<HomeScreen> {
             decoration: const BoxDecoration(
                 gradient: LinearGradient(
               colors: [
-                Colors.cyan,
-                Colors.amber,
+                Colors.orange,
+                Colors.orangeAccent,
               ],
               begin: FractionalOffset(0.0, 0.0),
               end: FractionalOffset(1.0, 0.0),

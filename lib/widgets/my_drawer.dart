@@ -57,82 +57,62 @@ class MyDrawer extends StatelessWidget {
             padding: const EdgeInsets.only(top: 1.0),
             child: Column(
               children: [
-                const Divider(
-                  height: 10,
-                  color: Colors.grey,
-                  thickness: 2,
-                ),
+
                 ListTile(
                   leading: const Icon(
                     Icons.home,
-                    color: Colors.black,
+                    color: Colors.orange,
                   ),
                   title: const Text(
                     "Home",
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(color: Colors.orange),
                   ),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (c)=>HomeScreen()));
                   },
                 ),
-                const Divider(
-                  height: 10,
-                  color: Colors.grey,
-                  thickness: 2,
-                ),
+
                 ListTile(
                   leading: const Icon(
                     Icons.reorder,
-                    color: Colors.black,
+                    color: Colors.orange,
                   ),
                   title: const Text(
                     "My Orders",
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(color: Colors.orange),
                   ),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (c)=>MyOrdersScreen()));
                   },
-                ), const Divider(
-                  height: 10,
-                  color: Colors.grey,
-                  thickness: 2,
                 ),
                 ListTile(
                   leading: const Icon(
                     Icons.edit,
-                    color: Colors.black,
+                    color: Colors.orange,
                   ),
                   title: const Text(
                     "Edit Profile",
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(color: Colors.orange),
                   ),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (c)=>EditProfilePage()));
                   },
                 ),
-                const Divider(
-                  height: 10,
-                  color: Colors.grey,
-                  thickness: 2,
-                ),
+
                 ListTile(
                   leading: const Icon(
                     Icons.access_time,
-                    color: Colors.black,
+                    color: Colors.orange,
                   ),
                   title: const Text(
                     "History",
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(color: Colors.orange),
                   ),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (c)=>HistoryScreen()));
                   },
                 ),
-                const Divider(
-                  height: 10,
-                  color: Colors.grey,
-                  thickness: 2,
-                 ),
+
                 // // ListTile(
                 // //   leading: const Icon(
                 // //     Icons.search,
@@ -168,11 +148,11 @@ class MyDrawer extends StatelessWidget {
                 ListTile(
                   leading: const Icon(
                     Icons.exit_to_app,
-                    color: Colors.black,
+                    color: Colors.orange,
                   ),
                   title: const Text(
                     "Sign Out",
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(color: Colors.orange),
                   ),
                   onTap: () {
                     firebaseAuth.signOut().then((value) {
@@ -183,11 +163,7 @@ class MyDrawer extends StatelessWidget {
                     });
                   },
                 ),
-                const Divider(
-                  height: 10,
-                  color: Colors.grey,
-                  thickness: 2,
-                ),
+
               ],
             ),
           ),

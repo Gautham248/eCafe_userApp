@@ -164,6 +164,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.orange,
         title: Text('Edit Profile'),
       ),
       body: SingleChildScrollView(
@@ -203,8 +204,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
             ),
             SizedBox(height: 16.0),
             ElevatedButton(
+
               onPressed: _saveChanges,
               child: Text('Save Changes'),
+              style: ElevatedButton.styleFrom(
+                primary: Color.fromARGB(255, 255, 170, 1)
+              ),
             ),
           ],
         ),

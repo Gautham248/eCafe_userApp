@@ -38,8 +38,8 @@ class _MySplashScreenState extends State<MySplashScreen> {
           decoration: const BoxDecoration(
               gradient: LinearGradient(
             colors: [
-              Colors.amber,
-              Colors.cyan,
+              Colors.orange,
+              Colors.white,
             ],
             begin: FractionalOffset(0.0, 0.0),
             end: FractionalOffset(1.0, 0.0),
@@ -57,12 +57,12 @@ class _MySplashScreenState extends State<MySplashScreen> {
                 const Padding(
                   padding: EdgeInsets.all(18.0),
                   child: Text(
-                    "Users App",
+                    "eCafe",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
-                        fontFamily: "Acme",
+                        fontFamily: "Lobster",
                         letterSpacing: 3),
                   ),
                 )
